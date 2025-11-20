@@ -262,7 +262,7 @@ runs:
 
       - name: Install pandoc if needed
         if: ${{ steps.check-pandoc.outputs.install == 'true' }}
-        uses: r-lib/actions/setup-pandoc@v2
+        uses: https://github.com/r-lib/actions/setup-pandoc@v2
         with:
           pandoc-version: ${{ inputs.pandoc-version }}
 
@@ -294,7 +294,7 @@ runs:
 
       - name: Install quarto if needed
         if: ${{ steps.check-quarto.outputs.install == 'true' }}
-        uses: quarto-dev/quarto-actions/setup@9e48da27e184aa238fcb49f5db75469626d43adb
+        uses: https://github.com/quarto-dev/quarto-actions/setup@9e48da27e184aa238fcb49f5db75469626d43adb
         with:
           version: ${{ inputs.quarto-version }}
 
