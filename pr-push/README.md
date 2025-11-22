@@ -28,14 +28,14 @@ jobs:
     name: foo
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: r-lib/actions/pr-fetch@v2
+      - uses: https://github.com/actions/checkout@v4
+      - uses: https://github.com/r-lib/actions/pr-fetch@v2
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
       - run: |
         echo "hi" > foo
         git commit -m 'foo added' --author 'GitHub Actions <actions@github.com>'
-      - uses: r-lib/actions/pr-push@v2
+      - uses: https://github.com/r-lib/actions/pr-push@v2
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
 ```

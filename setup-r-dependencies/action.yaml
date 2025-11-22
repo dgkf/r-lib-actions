@@ -194,7 +194,7 @@ runs:
 
       - name: R package cache
         if: inputs.cache == 'true'
-        uses: actions/cache@v4
+        uses: https://github.com/actions/cache@v4
         with:
           path: |
             ${{ env.R_LIBS_USER }}/*
@@ -207,7 +207,7 @@ runs:
       - name: R package cache restore
         id: cache-packages-restore
         if: inputs.cache == 'always'
-        uses: actions/cache/restore@v4
+        uses: https://github.com/actions/cache/restore@v4
         with:
           path: |
             ${{ env.R_LIBS_USER }}/*
@@ -262,7 +262,7 @@ runs:
 
       - name: Install pandoc if needed
         if: ${{ steps.check-pandoc.outputs.install == 'true' }}
-        uses: https://github.com/r-lib/actions/setup-pandoc@v2
+        uses: https://github.com/https://github.com/r-lib/actions/setup-pandoc@v2
         with:
           pandoc-version: ${{ inputs.pandoc-version }}
 
@@ -294,7 +294,7 @@ runs:
 
       - name: Install quarto if needed
         if: ${{ steps.check-quarto.outputs.install == 'true' }}
-        uses: https://github.com/quarto-dev/quarto-actions/setup@9e48da27e184aa238fcb49f5db75469626d43adb
+        uses: https://github.com/https://github.com/quarto-dev/quarto-actions/setup@9e48da27e184aa238fcb49f5db75469626d43adb
         with:
           version: ${{ inputs.quarto-version }}
 
@@ -326,7 +326,7 @@ runs:
 
       - name: R package cache save
         if: ${{ always() && steps.cache-packages-restore.outputs.cache-hit != 'true' && inputs.cache == 'always' }}
-        uses: actions/cache/save@v4
+        uses: https://github.com/actions/cache/save@v4
         with:
           path: |
             ${{ env.R_LIBS_USER }}/*

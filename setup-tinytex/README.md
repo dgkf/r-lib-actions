@@ -13,8 +13,8 @@ See [action.yml](action.yml)
 Basic:
 ```yaml
 steps:
-- uses: actions/checkout@v4
-- uses: r-lib/actions/setup-tinytex@v2
+- uses: https://github.com/actions/checkout@v4
+- uses: https://github.com/r-lib/actions/setup-tinytex@v2
 - run: tlmgr --version
 ```
 
@@ -29,8 +29,8 @@ For example this is the case if your R package builds its PDF reference manual a
 To install CTAN packages manually, you can call `tlmgr` from your workflow. We suggest you also run `tlmgr update --self` before installing, otherwise the installation may fail. Here is a complete example:
 ```yaml
 steps:
-  - uses: actions/checkout@v4
-  - uses: r-lib/actions/setup-tinytex@v2
+  - uses: https://github.com/actions/checkout@v4
+  - uses: https://github.com/r-lib/actions/setup-tinytex@v2
   - run: tlmgr --version
 
   - name: Install additional LaTeX packages
@@ -53,7 +53,7 @@ To change the bundle to install you can change the environment variable
 `TINYTEX_INSTALLER`
 
 ````yaml
-      - uses: r-lib/actions/setup-tinytex@v2
+      - uses: https://github.com/r-lib/actions/setup-tinytex@v2
         env:
           # install full prebuilt version
           TINYTEX_INSTALLER: TinyTeX
@@ -66,7 +66,7 @@ https://github.com/rstudio/tinytex-releases/releases
 To install a specific version, you can set the `TINYTEX_VERSION` environment variable
 
 ````yaml
-      - uses: r-lib/actions/setup-tinytex@v2
+      - uses: https://github.com/r-lib/actions/setup-tinytex@v2
         env:
           # always install the bundled version from Nov. 2021
           TINYTEX_VERSION: 2021.11

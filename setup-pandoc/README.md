@@ -32,8 +32,8 @@ not currently have nightly builds for arm64 machines, so using
 
 ```yaml
 steps:
-- uses: actions/checkout@v4
-- uses: r-lib/actions/setup-pandoc@v2
+- uses: https://github.com/actions/checkout@v4
+- uses: https://github.com/r-lib/actions/setup-pandoc@v2
   with:
     pandoc-version: '3.1.11' # The pandoc version to download (if necessary) and use.
 - run: echo "# Test" | pandoc -t html

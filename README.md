@@ -20,7 +20,7 @@ We use major version tags to mark breaking changes in these actions.
 For the current version, please use the `v2` tag, e.g.:
 
 ```yaml
-- uses: r-lib/actions/setup-r@v2
+- uses: https://github.com/r-lib/actions/setup-r@v2
 ```
 
 The `v2` tag occasionally changes, to introduce non-breaking fixes and

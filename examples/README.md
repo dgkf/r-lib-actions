@@ -92,18 +92,18 @@ jobs:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
       R_KEEP_PKG_SOURCE: yes
     steps:
-      - uses: actions/checkout@v4
+      - uses: https://github.com/actions/checkout@v4
 
-      - uses: r-lib/actions/setup-r@v2
+      - uses: https://github.com/r-lib/actions/setup-r@v2
         with:
           use-public-rspm: true
 
-      - uses: r-lib/actions/setup-r-dependencies@v2
+      - uses: https://github.com/r-lib/actions/setup-r-dependencies@v2
         with:
           extra-packages: any::rcmdcheck
           needs: check
 
-      - uses: r-lib/actions/check-r-package@v2
+      - uses: https://github.com/r-lib/actions/check-r-package@v2
         with:
           upload-snapshots: true
           build_args: 'c("--no-manual","--compact-vignettes=gs+qpdf")'
@@ -157,22 +157,22 @@ jobs:
       R_KEEP_PKG_SOURCE: yes
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: https://github.com/actions/checkout@v4
 
-      - uses: r-lib/actions/setup-pandoc@v2
+      - uses: https://github.com/r-lib/actions/setup-pandoc@v2
 
-      - uses: r-lib/actions/setup-r@v2
+      - uses: https://github.com/r-lib/actions/setup-r@v2
         with:
           r-version: ${{ matrix.config.r }}
           http-user-agent: ${{ matrix.config.http-user-agent }}
           use-public-rspm: true
 
-      - uses: r-lib/actions/setup-r-dependencies@v2
+      - uses: https://github.com/r-lib/actions/setup-r-dependencies@v2
         with:
           extra-packages: any::rcmdcheck
           needs: check
 
-      - uses: r-lib/actions/check-r-package@v2
+      - uses: https://github.com/r-lib/actions/check-r-package@v2
         with:
           upload-snapshots: true
           build_args: 'c("--no-manual","--compact-vignettes=gs+qpdf")'
@@ -240,22 +240,22 @@ jobs:
       R_KEEP_PKG_SOURCE: yes
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: https://github.com/actions/checkout@v4
 
-      - uses: r-lib/actions/setup-pandoc@v2
+      - uses: https://github.com/r-lib/actions/setup-pandoc@v2
 
-      - uses: r-lib/actions/setup-r@v2
+      - uses: https://github.com/r-lib/actions/setup-r@v2
         with:
           r-version: ${{ matrix.config.r }}
           http-user-agent: ${{ matrix.config.http-user-agent }}
           use-public-rspm: true
 
-      - uses: r-lib/actions/setup-r-dependencies@v2
+      - uses: https://github.com/r-lib/actions/setup-r-dependencies@v2
         with:
           extra-packages: any::rcmdcheck
           needs: check
 
-      - uses: r-lib/actions/check-r-package@v2
+      - uses: https://github.com/r-lib/actions/check-r-package@v2
         with:
           upload-snapshots: true
           build_args: 'c("--no-manual","--compact-vignettes=gs+qpdf")'
@@ -303,13 +303,13 @@ jobs:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: https://github.com/actions/checkout@v4
 
-      - uses: r-lib/actions/setup-r@v2
+      - uses: https://github.com/r-lib/actions/setup-r@v2
         with:
           use-public-rspm: true
 
-      - uses: r-lib/actions/setup-r-dependencies@v2
+      - uses: https://github.com/r-lib/actions/setup-r-dependencies@v2
         with:
           extra-packages: any::covr, any::xml2
           needs: coverage
@@ -324,7 +324,7 @@ jobs:
           covr::to_cobertura(cov)
         shell: Rscript {0}
 
-      - uses: codecov/codecov-action@v4
+      - uses: https://github.com/codecov/codecov-action@v4
         with:
           # Fail if error if not on PR, or if on PR and token is given
           fail_ci_if_error: ${{ github.event_name != 'pull_request' || secrets.CODECOV_TOKEN }}
@@ -342,7 +342,7 @@ jobs:
 
       - name: Upload test results
         if: failure()
-        uses: actions/upload-artifact@v4
+        uses: https://github.com/actions/upload-artifact@v4
         with:
           name: coverage-test-failures
           path: ${{ runner.temp }}/package
@@ -373,13 +373,13 @@ jobs:
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: https://github.com/actions/checkout@v4
 
-      - uses: r-lib/actions/setup-r@v2
+      - uses: https://github.com/r-lib/actions/setup-r@v2
         with:
           use-public-rspm: true
 
-      - uses: r-lib/actions/setup-r-dependencies@v2
+      - uses: https://github.com/r-lib/actions/setup-r-dependencies@v2
         with:
           extra-packages: any::lintr, local::.
           needs: lint
@@ -428,17 +428,17 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: https://github.com/actions/checkout@v4
 
-      - uses: r-lib/actions/pr-fetch@v2
+      - uses: https://github.com/r-lib/actions/pr-fetch@v2
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
 
-      - uses: r-lib/actions/setup-r@v2
+      - uses: https://github.com/r-lib/actions/setup-r@v2
         with:
           use-public-rspm: true
 
-      - uses: r-lib/actions/setup-r-dependencies@v2
+      - uses: https://github.com/r-lib/actions/setup-r-dependencies@v2
         with:
           extra-packages: any::roxygen2
           needs: pr-document
@@ -454,7 +454,7 @@ jobs:
           git add man/\* NAMESPACE
           git commit -m 'Document'
 
-      - uses: r-lib/actions/pr-push@v2
+      - uses: https://github.com/r-lib/actions/pr-push@v2
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -467,13 +467,13 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: https://github.com/actions/checkout@v4
 
-      - uses: r-lib/actions/pr-fetch@v2
+      - uses: https://github.com/r-lib/actions/pr-fetch@v2
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
 
-      - uses: r-lib/actions/setup-r@v2
+      - uses: https://github.com/r-lib/actions/setup-r@v2
 
       - name: Install dependencies
         run: install.packages("styler")
@@ -490,7 +490,7 @@ jobs:
           git add \*.R
           git commit -m 'Style'
 
-      - uses: r-lib/actions/pr-push@v2
+      - uses: https://github.com/r-lib/actions/pr-push@v2
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
 ```
@@ -523,17 +523,17 @@ jobs:
       contents: write
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v4
+        uses: https://github.com/actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - uses: r-lib/actions/setup-pandoc@v2
+      - uses: https://github.com/r-lib/actions/setup-pandoc@v2
 
-      - uses: r-lib/actions/setup-r@v2
+      - uses: https://github.com/r-lib/actions/setup-r@v2
         with:
           r-version: renv
 
-      - uses: r-lib/actions/setup-renv@v2
+      - uses: https://github.com/r-lib/actions/setup-renv@v2
 
       - name: Render Rmarkdown files and Commit Results
         run: |
@@ -593,15 +593,15 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: https://github.com/actions/checkout@v4
 
-      - uses: r-lib/actions/setup-pandoc@v2
+      - uses: https://github.com/r-lib/actions/setup-pandoc@v2
 
-      - uses: r-lib/actions/setup-r@v2
+      - uses: https://github.com/r-lib/actions/setup-r@v2
         with:
           use-public-rspm: true
 
-      - uses: r-lib/actions/setup-r-dependencies@v2
+      - uses: https://github.com/r-lib/actions/setup-r-dependencies@v2
         with:
           extra-packages: any::pkgdown, local::.
           needs: website
@@ -612,7 +612,7 @@ jobs:
 
       - name: Deploy to GitHub pages 🚀
         if: github.event_name != 'pull_request'
-        uses: JamesIves/github-pages-deploy-action@v4.5.0
+        uses: https://github.com/JamesIves/github-pages-deploy-action@v4.5.0
         with:
           clean: false
           branch: gh-pages
@@ -647,17 +647,17 @@ jobs:
       contents: write
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v4
+        uses: https://github.com/actions/checkout@v4
         with:
           fetch-depth: 0
 
       - name: Setup R
-        uses: r-lib/actions/setup-r@v2
+        uses: https://github.com/r-lib/actions/setup-r@v2
         with:
           use-public-rspm: true
 
       - name: Install dependencies
-        uses: r-lib/actions/setup-r-dependencies@v2
+        uses: https://github.com/r-lib/actions/setup-r-dependencies@v2
         with:
           extra-packages: any::roxygen2
           needs: roxygen2
@@ -703,17 +703,17 @@ jobs:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v4
+        uses: https://github.com/actions/checkout@v4
         with:
           fetch-depth: 0
 
       - name: Setup R
-        uses: r-lib/actions/setup-r@v2
+        uses: https://github.com/r-lib/actions/setup-r@v2
         with:
           use-public-rspm: true
 
       - name: Install dependencies
-        uses: r-lib/actions/setup-r-dependencies@v2
+        uses: https://github.com/r-lib/actions/setup-r-dependencies@v2
         with:
           extra-packages: any::styler, any::roxygen2
           needs: styler
@@ -736,7 +736,7 @@ jobs:
         shell: Rscript {0}
 
       - name: Cache styler
-        uses: actions/cache@v4
+        uses: https://github.com/actions/cache@v4
         with:
           path: ${{ steps.styler-location.outputs.location }}
           key: ${{ runner.os }}-styler-${{ github.sha }}
@@ -811,19 +811,19 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: https://github.com/actions/checkout@v4
 
-      - uses: r-lib/actions/setup-pandoc@v2
+      - uses: https://github.com/r-lib/actions/setup-pandoc@v2
 
-      - uses: r-lib/actions/setup-r@v2
+      - uses: https://github.com/r-lib/actions/setup-r@v2
         with:
           use-public-rspm: true
           r-version: renv
 
-      - uses: r-lib/actions/setup-renv@v2
+      - uses: https://github.com/r-lib/actions/setup-renv@v2
 
       - name: Cache bookdown results
-        uses: actions/cache@v4
+        uses: https://github.com/actions/cache@v4
         with:
           path: _bookdown_files
           key: bookdown-${{ hashFiles('**/*Rmd') }}
@@ -835,7 +835,7 @@ jobs:
 
       - name: Deploy to GitHub pages 🚀
         if: github.event_name != 'pull_request'
-        uses: JamesIves/github-pages-deploy-action@v4.5.0
+        uses: https://github.com/JamesIves/github-pages-deploy-action@v4.5.0
         with:
           branch: gh-pages
           folder: _book
@@ -871,19 +871,19 @@ jobs:
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: https://github.com/actions/checkout@v4
 
-      - uses: r-lib/actions/setup-pandoc@v2
+      - uses: https://github.com/r-lib/actions/setup-pandoc@v2
 
-      - uses: r-lib/actions/setup-r@v2
+      - uses: https://github.com/r-lib/actions/setup-r@v2
         with:
           use-public-rspm: true
           r-version: renv
 
-      - uses: r-lib/actions/setup-renv@v2
+      - uses: https://github.com/r-lib/actions/setup-renv@v2
 
       - name: Cache bookdown results
-        uses: actions/cache@v4
+        uses: https://github.com/actions/cache@v4
         with:
           path: _bookdown_files
           key: bookdown-${{ hashFiles('**/*Rmd') }}
@@ -895,7 +895,7 @@ jobs:
 
       - name: Upload website artifact
         if: ${{ github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master' }}
-        uses: actions/upload-pages-artifact@v3
+        uses: https://github.com/actions/upload-pages-artifact@v3
         with:
           path: "_book"
 
@@ -914,7 +914,7 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: https://github.com/actions/deploy-pages@v4
 ```
 
 ## Build blogdown site
@@ -964,16 +964,16 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: https://github.com/actions/checkout@v4
 
-      - uses: r-lib/actions/setup-pandoc@v2
+      - uses: https://github.com/r-lib/actions/setup-pandoc@v2
 
-      - uses: r-lib/actions/setup-r@v2
+      - uses: https://github.com/r-lib/actions/setup-r@v2
         with:
           use-public-rspm: true
           r-version: renv
 
-      - uses: r-lib/actions/setup-renv@v2
+      - uses: https://github.com/r-lib/actions/setup-renv@v2
 
       - name: Install hugo
         run: blogdown::install_hugo()
@@ -985,7 +985,7 @@ jobs:
 
       - name: Deploy to GitHub pages 🚀
         if: github.event_name != 'pull_request'
-        uses: JamesIves/github-pages-deploy-action@v4.5.0
+        uses: https://github.com/JamesIves/github-pages-deploy-action@v4.5.0
         with:
           branch: gh-pages
           folder: public
@@ -1021,16 +1021,16 @@ jobs:
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: https://github.com/actions/checkout@v4
 
-      - uses: r-lib/actions/setup-pandoc@v2
+      - uses: https://github.com/r-lib/actions/setup-pandoc@v2
 
-      - uses: r-lib/actions/setup-r@v2
+      - uses: https://github.com/r-lib/actions/setup-r@v2
         with:
           use-public-rspm: true
           r-version: renv
 
-      - uses: r-lib/actions/setup-renv@v2
+      - uses: https://github.com/r-lib/actions/setup-renv@v2
 
       - name: Install hugo
         run: blogdown::install_hugo()
@@ -1042,7 +1042,7 @@ jobs:
 
       - name: Upload website artifact
         if: ${{ github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master' }}
-        uses: actions/upload-pages-artifact@v3
+        uses: https://github.com/actions/upload-pages-artifact@v3
         with:
           path: "public"
 
@@ -1061,7 +1061,7 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: https://github.com/actions/deploy-pages@v4
 ```
 
 ## Shiny App Deployment
@@ -1106,16 +1106,16 @@ jobs:
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: https://github.com/actions/checkout@v4
 
-      - uses: r-lib/actions/setup-pandoc@v2
+      - uses: https://github.com/r-lib/actions/setup-pandoc@v2
 
-      - uses: r-lib/actions/setup-r@v2
+      - uses: https://github.com/r-lib/actions/setup-r@v2
         with:
           use-public-rspm: true
           r-version: renv
 
-      - uses: r-lib/actions/setup-renv@v2
+      - uses: https://github.com/r-lib/actions/setup-renv@v2
 
       - name: Install rsconnect
         run: install.packages("rsconnect")
@@ -1184,9 +1184,9 @@ jobs:
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: https://github.com/actions/checkout@v4
 
-      - uses: r-lib/actions/setup-r@v2
+      - uses: https://github.com/r-lib/actions/setup-r@v2
         with:
           use-public-rspm: true
 

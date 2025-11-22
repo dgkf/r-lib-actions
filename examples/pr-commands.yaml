@@ -18,17 +18,17 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: https://github.com/actions/checkout@v4
 
-      - uses: r-lib/actions/pr-fetch@v2
+      - uses: https://github.com/r-lib/actions/pr-fetch@v2
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
 
-      - uses: r-lib/actions/setup-r@v2
+      - uses: https://github.com/r-lib/actions/setup-r@v2
         with:
           use-public-rspm: true
 
-      - uses: r-lib/actions/setup-r-dependencies@v2
+      - uses: https://github.com/r-lib/actions/setup-r-dependencies@v2
         with:
           extra-packages: any::roxygen2
           needs: pr-document
@@ -44,7 +44,7 @@ jobs:
           git add man/\* NAMESPACE
           git commit -m 'Document'
 
-      - uses: r-lib/actions/pr-push@v2
+      - uses: https://github.com/r-lib/actions/pr-push@v2
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -57,13 +57,13 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: https://github.com/actions/checkout@v4
 
-      - uses: r-lib/actions/pr-fetch@v2
+      - uses: https://github.com/r-lib/actions/pr-fetch@v2
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
 
-      - uses: r-lib/actions/setup-r@v2
+      - uses: https://github.com/r-lib/actions/setup-r@v2
 
       - name: Install dependencies
         run: install.packages("styler")
@@ -80,6 +80,6 @@ jobs:
           git add \*.R
           git commit -m 'Style'
 
-      - uses: r-lib/actions/pr-push@v2
+      - uses: https://github.com/r-lib/actions/pr-push@v2
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}

@@ -105,8 +105,8 @@ Basic:
 
 ``` yaml
 steps:
-- uses: actions/checkout@v4
-- uses: r-lib/actions/setup-r@v2
+- uses: https://github.com/actions/checkout@v4
+- uses: https://github.com/r-lib/actions/setup-r@v2
   with:
     r-version: '3.5.3' # The R version to download (if necessary) and use.
     # Use "renv" to retrieve R version recorded in renv.lock file.
@@ -124,9 +124,9 @@ jobs:
         R: [ '3.5.3', '3.6.1' ]
     name: R ${{ matrix.R }} sample
     steps:
-      - uses: actions/checkout@v4
+      - uses: https://github.com/actions/checkout@v4
       - name: Setup R
-        uses: r-lib/actions/setup-r@v2
+        uses: https://github.com/r-lib/actions/setup-r@v2
         with:
           r-version: ${{ matrix.R }}
       - run: Rscript -e 'print("hello")'

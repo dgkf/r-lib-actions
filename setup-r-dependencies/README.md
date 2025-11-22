@@ -65,9 +65,9 @@ Inputs available
 Basic:
 ```yaml
 steps:
-- uses: actions/checkout@v4
-- uses: r-lib/actions/setup-r@v2
-- uses: r-lib/actions/setup-r-dependencies@v2
+- uses: https://github.com/actions/checkout@v4
+- uses: https://github.com/r-lib/actions/setup-r@v2
+- uses: https://github.com/r-lib/actions/setup-r-dependencies@v2
   with:
     cache-version: 2
     extra-packages: |
@@ -155,9 +155,9 @@ write this in the butcher workflow file:
 
 ```yaml
 steps:
-- uses: actions/checkout@v4
-- uses: r-lib/actions/setup-r@v2
-- uses: r-lib/actions/setup-r-dependencies@v2
+- uses: https://github.com/actions/checkout@v4
+- uses: https://github.com/r-lib/actions/setup-r@v2
+- uses: https://github.com/r-lib/actions/setup-r-dependencies@v2
   with:
     extra-packages: any::rcmdcheck, survival=?ignore-before-r=3.5.0
     needs: check
@@ -170,7 +170,7 @@ environment variable to `false`, otherwise the check fails if suggested
 packages are not available:
 
 ```yaml
-- uses: r-lib/actions/check-r-package@v2
+- uses: https://github.com/r-lib/actions/check-r-package@v2
   env:
     _R_CHECK_FORCE_SUGGESTS_: false
 ```
@@ -186,7 +186,7 @@ the package you want to ignore.)
 Example:
 
 ```yaml
-- uses: r-lib/actions/setup-r-dependencies@v2
+- uses: https://github.com/r-lib/actions/setup-r-dependencies@v2
   with:
     extra-packages: any::rcmdcheck, survival=?ignore
     needs: check
@@ -200,9 +200,9 @@ package as `local::.` to pak:
 
 ```yaml
 steps:
-- uses: actions/checkout@v4
-- uses: r-lib/actions/setup-r@v2
-- uses: r-lib/actions/setup-r-dependencies@v2
+- uses: https://github.com/actions/checkout@v4
+- uses: https://github.com/r-lib/actions/setup-r@v2
+- uses: https://github.com/r-lib/actions/setup-r-dependencies@v2
   with:
     extra-packages: any::pkgdown, local::.
     needs: website
@@ -213,7 +213,7 @@ to install an embedded test package you can write:
 
 ```yaml
 ...
-- uses: r-lib/actions/setup-r-dependencies@v2
+- uses: https://github.com/r-lib/actions/setup-r-dependencies@v2
   with:
     extra-packages: any::pkgdown, local::., local::./tests/testthat/testpkg
 ...
@@ -236,7 +236,7 @@ workflow file to add an `extra-packages` input to `workflow_dispatch`:
 ```
 
 ```yaml
-      - uses: r-lib/actions/setup-r-dependencies@v2
+      - uses: https://github.com/r-lib/actions/setup-r-dependencies@v2
         with:
           extra-packages: >
             any::rcmdcheck,

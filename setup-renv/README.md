@@ -28,9 +28,9 @@ Example:
 
 ```yaml
 steps:
-- uses: actions/checkout@v4
-- uses: r-lib/actions/setup-r@v2
-- uses: r-lib/actions/setup-renv@v2
+- uses: https://github.com/actions/checkout@v4
+- uses: https://github.com/r-lib/actions/setup-r@v2
+- uses: https://github.com/r-lib/actions/setup-renv@v2
   with:
     profile: '"shiny"'
 ```
